@@ -1,10 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, FileText, Send, Terminal, Code2, ShieldCheck } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, HashnodeIcon, CodeforcesIcon, CodechefIcon } from './SocialIcons';
 import { portfolioData } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
   const { profile } = portfolioData;
+
+  const roles = ["Backend Engineer", "DevOps Engineer", "Cloud Engineer"];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(100);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentWord = roles[currentRoleIndex];
+      
+      if (!isDeleting) {
+        const nextText = currentWord.substring(0, displayedText.length + 1);
+        setDisplayedText(nextText);
+        setTypingSpeed(100); // typing speed
+
+        if (nextText === currentWord) {
+          setIsDeleting(true);
+          setTypingSpeed(2000); // pause at full word
+        }
+      } else {
+        const nextText = currentWord.substring(0, displayedText.length - 1);
+        setDisplayedText(nextText);
+        setTypingSpeed(50); // deleting speed
+
+        if (nextText === "") {
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+          setTypingSpeed(500); // pause before next word
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentRoleIndex, typingSpeed]);
 
   const stats = [
     { label: 'LeetCode Rating', value: '1840', desc: 'Top 7.94% Global', icon: LeetcodeIcon, color: 'text-amber-500' },
@@ -36,8 +72,9 @@ export const Hero: React.FC = () => {
               Hi, I'm <span className="bg-gradient-to-r from-indigo-600 to-indigo-400 dark:from-brand-secondary dark:to-teal-300 bg-clip-text text-transparent">{profile.name}</span>
             </h1>
 
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200">
-              {profile.title}
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 min-h-[40px] flex items-center">
+              <span>{displayedText}</span>
+              <span className="w-[3px] h-[24px] sm:h-[28px] bg-slate-800 dark:bg-slate-100 ml-1.5 inline-block animate-cursor-blink"></span>
             </h2>
 
             <p className="text-lg text-slate-600 dark:text-dark-muted max-w-xl leading-relaxed">

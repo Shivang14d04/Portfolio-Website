@@ -69,3 +69,11 @@
     @apply absolute w-72 h-72 rounded-full filter blur-[100px] bg-brand-secondary/10 dark:bg-brand-secondary/15 pointer-events-none;
   }
 }
+
+@keyframes cursorBlink {
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.9s step-end infinite;
+}
