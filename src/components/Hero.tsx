@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, FileText, Send, Terminal, Code2, ShieldCheck } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, LeetcodeIcon, HashnodeIcon, CodeforcesIcon, CodechefIcon } from './SocialIcons';
+import { Mail, Send, Terminal, Code2, ShieldCheck } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, LeetcodeIcon, HashnodeIcon, CodechefIcon } from './SocialIcons';
 import { portfolioData } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -43,8 +43,7 @@ export const Hero: React.FC = () => {
   }, [displayedText, isDeleting, currentRoleIndex, typingSpeed]);
 
   const stats = [
-    { label: 'LeetCode Rating', value: '1840', desc: 'Top 7.94% Global', icon: LeetcodeIcon, color: 'text-amber-500' },
-    { label: 'Codeforces Rating', value: '1256', desc: 'Pupil status', icon: CodeforcesIcon, color: 'text-sky-500' },
+    { label: 'LeetCode Rating', value: '1859', desc: 'Knight status', icon: LeetcodeIcon, color: 'text-amber-500' },
     { label: 'Codechef Rating', value: '1586', desc: 'Peak rating', icon: CodechefIcon, color: 'text-emerald-500' },
     { label: 'DSA Problems Solved', value: '800+', desc: 'Across Platforms', icon: ShieldCheck, color: 'text-indigo-500' }
   ];
@@ -89,14 +88,7 @@ export const Hero: React.FC = () => {
               >
                 <span>View My Projects</span>
               </a>
-              <a 
-                href="/ShivangResume.pdf"
-                download="Shivang_Kumar_Nayak_Resume.pdf"
-                className="px-6 py-3.5 rounded-xl bg-white dark:bg-dark-card border border-slate-300 dark:border-dark-border text-slate-800 dark:text-dark-text font-medium hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-300 transform hover:scale-[1.02] flex items-center space-x-2"
-              >
-                <FileText className="w-4 h-4 text-indigo-500 dark:text-brand-secondary" />
-                <span>Get Resume</span>
-              </a>
+
               <a 
                 href="#contact"
                 className="px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium transition-all duration-300 flex items-center space-x-2"
@@ -142,15 +134,7 @@ export const Hero: React.FC = () => {
               >
                 <LeetcodeIcon className="w-5 h-5" />
               </a>
-              <a 
-                href={profile.socials.codeforces} 
-                target="_blank" 
-                rel="noreferrer" 
-                className="p-3 rounded-xl bg-slate-100 dark:bg-dark-card text-slate-600 dark:text-dark-muted hover:text-indigo-600 dark:hover:text-brand-secondary border border-slate-200/50 dark:border-dark-border/80 transition-all duration-300"
-                aria-label="Codeforces Profile"
-              >
-                <CodeforcesIcon className="w-5 h-5" />
-              </a>
+
               <a 
                 href={profile.socials.codechef} 
                 target="_blank" 
@@ -235,7 +219,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Stats Grid Footer */}
-        <div className="mt-16 md:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl">
+        <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {stats.map((s, index) => {
             const IconComponent = s.icon;
             return (

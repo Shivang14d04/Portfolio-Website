@@ -45,7 +45,6 @@ export const portfolioData = {
       github: "https://github.com/Shivang14d04",
       linkedin: "https://www.linkedin.com/in/shivang-kumar-64aa6428b",
       leetcode: "https://leetcode.com/u/shivang_1207/",
-      codeforces: "https://codeforces.com/profile/Shivang14d04",
       codechef: "https://www.codechef.com/users/shivang_1207",
       hashnode: "https://hashnode.com/@shivang12",
       twitter: "https://x.com/Shivang141204"
@@ -240,12 +239,8 @@ export const portfolioData = {
   ] as Experience[],
   achievements: [
     {
-      title: "LeetCode Contest Rating: 1840",
-      details: "Ranked in the top 7.94% globally among 795,000+ active competitive programmers."
-    },
-    {
-      title: "Codeforces Rating: 1256",
-      details: "Achieved Pupil status on Codeforces, demonstrating strong problem-solving skills."
+      title: "LeetCode Contest Rating: 1859 (Knight)",
+      details: "Achieved Knight badge, ranking in the top tier globally among active competitive programmers."
     },
     {
       title: "Codechef Rating: 1586",
