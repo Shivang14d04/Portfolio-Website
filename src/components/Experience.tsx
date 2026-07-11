@@ -1,19 +1,20 @@
 import React from 'react';
-import { Calendar, Briefcase, Award, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { Calendar, Briefcase, Award, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export const Experience: React.FC = () => {
   const { experience, achievements } = portfolioData;
 
   return (
-    <section id="experience" className="py-20 border-t border-slate-200/50 dark:border-dark-border/40 relative">
-      <div className="glow-orb-primary -top-12 -left-12"></div>
+    <section id="experience" className="py-24 border-t border-slate-200/40 dark:border-dark-border/30 relative overflow-hidden">
+      <div className="glow-orb-primary -top-12 -left-12 animate-pulse-slow"></div>
+      <div className="glow-orb-cyan bottom-12 right-12 animate-pulse-slow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-mono text-brand-primary dark:text-brand-secondary uppercase tracking-widest bg-indigo-500/10 dark:bg-brand-secondary/10 px-3 py-1.5 rounded-full inline-block">
+          <h2 className="text-xs font-mono text-brand-primary dark:text-brand-secondary uppercase tracking-widest bg-brand-primary/10 dark:bg-brand-secondary/10 px-3 py-1.5 rounded-full inline-block">
             04 . Experience
           </h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-dark-text mt-3 tracking-tight">
@@ -40,11 +41,11 @@ export const Experience: React.FC = () => {
                   <div className="absolute left-[18px] top-1.5 w-3.5 h-3.5 rounded-full bg-white dark:bg-dark-bg border-[3.5px] border-indigo-500 dark:border-brand-secondary group-hover:border-indigo-650 dark:group-hover:border-indigo-400 transition-colors duration-250 z-10 shadow-sm"></div>
                   
                   {/* Experience Card */}
-                  <div className="glass-card rounded-2xl p-6 border-slate-200/50 dark:border-dark-border/50 shadow-sm hover:border-indigo-550/20 dark:hover:border-brand-secondary/20 hover:shadow-md transition-all duration-300">
+                  <div className="glass-card glass-card-hover rounded-3xl p-6">
                     
                     <div className="flex flex-wrap justify-between items-start gap-2 mb-3">
                       <div>
-                        <span className="px-2 py-0.5 text-[10px] font-semibold font-mono rounded bg-indigo-500/10 text-indigo-600 dark:text-brand-secondary border border-indigo-500/10 mb-1.5 inline-block">
+                        <span className="px-2 py-0.5 text-[10px] font-semibold font-mono rounded bg-brand-primary/10 text-indigo-600 dark:text-brand-secondary border border-brand-primary/10 mb-1.5 inline-block">
                           {exp.role}
                         </span>
                         <h5 className="font-extrabold text-slate-800 dark:text-dark-text text-lg leading-tight">
@@ -66,7 +67,7 @@ export const Experience: React.FC = () => {
                     <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 dark:text-dark-muted leading-relaxed">
                       {exp.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-start">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-brand-secondary mr-2 mt-0.5 shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0" />
                           <span>{bullet}</span>
                         </li>
                       ))}
@@ -91,7 +92,7 @@ export const Experience: React.FC = () => {
           {/* Right Block: Achievements List */}
           <div className="lg:col-span-5 space-y-6">
             <h4 className="text-xl font-bold text-slate-800 dark:text-dark-text flex items-center space-x-2.5 mb-6 pl-2">
-              <Award className="w-5 h-5 text-indigo-500" />
+              <Award className="w-5 h-5 text-amber-500" />
               <span>Certifications &amp; Ratings</span>
             </h4>
 
@@ -99,9 +100,9 @@ export const Experience: React.FC = () => {
               {achievements.map((ach, idx) => (
                 <div 
                   key={idx} 
-                  className="glass-card rounded-2xl p-5 border-slate-200/50 dark:border-dark-border/50 shadow-sm flex items-start space-x-4 hover:border-brand-primary/20 dark:hover:border-brand-secondary/20 transition-all duration-300 hover:shadow-sm"
+                  className="glass-card glass-card-hover rounded-3xl p-5 flex items-start space-x-4"
                 >
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-dark-border text-indigo-500 dark:text-brand-secondary shrink-0">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shrink-0">
                     <Award className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
@@ -115,23 +116,7 @@ export const Experience: React.FC = () => {
                 </div>
               ))}
             </div>
-            
-            {/* View ATF Credentials callout */}
-            <div className="p-5 rounded-2xl bg-indigo-500/5 dark:bg-brand-secondary/5 border border-indigo-500/10 dark:border-brand-secondary/10 flex items-center justify-between group">
-              <div>
-                <h5 className="text-sm font-bold text-slate-800 dark:text-dark-text">Advanced Technology Fellowship (ATF)</h5>
-                <p className="text-xs text-slate-500 dark:text-dark-muted mt-0.5">Stage 2 candidate status verification link</p>
-              </div>
-              <a 
-                href="https://github.com/shivang14d04" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="p-2.5 rounded-xl bg-white dark:bg-dark-card border border-slate-200 dark:border-dark-border text-slate-700 dark:text-brand-secondary group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:bg-brand-secondary dark:group-hover:text-dark-bg transition-all duration-200 flex items-center shadow-sm"
-                title="View ATF Credentials"
-              >
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
+
 
           </div>
 

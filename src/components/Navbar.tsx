@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/80 dark:bg-dark-bg/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-dark-border/50 py-3 shadow-sm' 
+          ? 'bg-white/70 dark:bg-dark-bg/70 backdrop-blur-md border-b border-slate-200/40 dark:border-dark-border/30 py-3 shadow-premium-sm' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
           onClick={() => handleScrollTo('home')}
           className="flex items-center space-x-2 text-slate-800 dark:text-dark-text hover:text-brand-primary dark:hover:text-brand-secondary transition-colors duration-200 focus:outline-none"
         >
-          <div className="p-1.5 rounded-lg bg-indigo-600/10 dark:bg-brand-secondary/10 text-brand-primary dark:text-brand-secondary border border-indigo-600/20 dark:border-brand-secondary/20 shadow-sm">
+          <div className="p-1.5 rounded-lg bg-indigo-650/10 dark:bg-brand-secondary/10 text-brand-primary dark:text-brand-secondary border border-indigo-600/20 dark:border-brand-secondary/20 shadow-sm">
             <Terminal className="w-5 h-5" />
           </div>
           <span className="font-sans font-bold text-lg tracking-tight">
@@ -80,15 +80,15 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden md:flex items-center space-x-2">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleScrollTo(item.id)}
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none ${
+              className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none border ${
                 activeSection === item.id
-                  ? 'text-brand-primary dark:text-brand-secondary bg-indigo-600/5 dark:bg-brand-secondary/5 font-semibold'
-                  : 'text-slate-600 dark:text-dark-muted hover:text-slate-900 dark:hover:text-dark-text hover:bg-slate-100 dark:hover:bg-dark-card/50'
+                  ? 'text-[#6366F1] dark:text-[#a78bfa] bg-[#6366F1]/8 dark:bg-[#8B5CF6]/12 border-[#6366F1]/15 dark:border-[#8B5CF6]/20 font-semibold'
+                  : 'text-slate-650 dark:text-dark-muted hover:text-slate-900 dark:hover:text-dark-text hover:bg-slate-100/50 dark:hover:bg-dark-card/30 border-transparent'
               }`}
             >
               {item.label}
@@ -121,10 +121,10 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
             <button
               key={item.id}
               onClick={() => handleScrollTo(item.id)}
-              className={`block w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-colors ${
+              className={`block w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all border ${
                 activeSection === item.id
-                  ? 'text-brand-primary dark:text-brand-secondary bg-indigo-600/5 dark:bg-brand-secondary/5 font-semibold'
-                  : 'text-slate-600 dark:text-dark-muted hover:text-slate-900 dark:hover:text-dark-text hover:bg-slate-100 dark:hover:bg-dark-card/50'
+                  ? 'text-[#6366F1] dark:text-[#a78bfa] bg-[#6366F1]/8 dark:bg-[#8B5CF6]/12 border-[#6366F1]/15 dark:border-[#8B5CF6]/20 font-semibold'
+                  : 'text-slate-650 dark:text-dark-muted hover:text-slate-900 dark:hover:text-dark-text hover:bg-slate-100/50 dark:hover:bg-dark-card/30 border-transparent'
               }`}
             >
               {item.label}

@@ -3,8 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Skills } from './components/Skills';
-import { FeaturedProjects } from './components/FeaturedProjects';
-import { GithubGrid } from './components/GithubGrid';
+import { Projects } from './components/Projects';
 import { GithubDashboard } from './components/GithubDashboard';
 import { Experience } from './components/Experience';
 import { Contact } from './components/Contact';
@@ -38,7 +37,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-dark-bg text-slate-800 dark:text-dark-text transition-colors duration-350 flex flex-col font-sans antialiased overflow-x-hidden selection:bg-brand-primary/20">
+    <div className="min-h-screen bg-gradient-to-b from-[#F7F7FB] to-[#F2F2F6] dark:bg-gradient-to-b dark:from-[#0B0F19] dark:to-[#070A12] text-slate-800 dark:text-dark-text transition-colors duration-350 flex flex-col font-sans antialiased overflow-x-hidden selection:bg-brand-primary/20">
       
       {/* Top sticky responsive Navbar with dark/light toggle */}
       <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
@@ -55,11 +54,8 @@ function App() {
         {/* Compentency grids */}
         <Skills />
         
-        {/* Custom Architecture layouts */}
-        <FeaturedProjects />
-        
-        {/* Secondary project repository grid */}
-        <GithubGrid />
+        {/* Unified project repository grid */}
+        <Projects />
         
         {/* Contribution calendar & stats */}
         <GithubDashboard darkMode={darkMode} />

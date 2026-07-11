@@ -51,8 +51,9 @@ export const Hero: React.FC = () => {
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       {/* Visual background accents */}
-      <div className="glow-orb-primary -top-12 -left-12"></div>
-      <div className="glow-orb-secondary top-1/2 right-12"></div>
+      <div className="glow-orb-primary -top-12 -left-12 animate-pulse-slow"></div>
+      <div className="glow-orb-secondary top-1/2 right-12 animate-pulse-slow"></div>
+      <div className="glow-orb-cyan bottom-4 left-1/4 animate-pulse-slow"></div>
       <div className="absolute inset-0 grid-pattern pointer-events-none opacity-60"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -62,13 +63,13 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 text-left animate-fade-in">
             
             {/* Tagline Badge */}
-            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-indigo-500/10 dark:bg-brand-secondary/10 border border-indigo-500/20 dark:border-brand-secondary/20 text-brand-primary dark:text-brand-secondary text-sm font-mono">
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-[#6366F1]/10 dark:bg-[#7C3AED]/15 border border-[#6366F1]/20 dark:border-[#7C3AED]/20 text-[#6366F1] dark:text-[#a78bfa] text-sm font-mono">
               <Terminal className="w-4 h-4 animate-pulse" />
               <span>Available for Summer / Fall Internships</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-              Hi, I'm <span className="bg-gradient-to-r from-indigo-600 to-indigo-400 dark:from-brand-secondary dark:to-teal-300 bg-clip-text text-transparent">{profile.name}</span>
+              Hi, I'm <span className="bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] dark:from-[#818CF8] dark:to-[#A78BFA] bg-clip-text text-transparent">{profile.name}</span>
             </h1>
 
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 min-h-[40px] flex items-center">
@@ -84,16 +85,16 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4 pt-2">
               <a 
                 href="#projects"
-                className="px-6 py-3.5 rounded-xl bg-brand-primary text-white font-medium hover:bg-indigo-700 hover:shadow-glow-primary transition-all duration-300 transform hover:scale-[1.02] flex items-center space-x-2"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#6366F1] to-[#7C3AED] hover:from-[#4F46E5] hover:to-[#6D28D9] text-white font-semibold shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-[1.02] flex items-center space-x-2"
               >
                 <span>View My Projects</span>
               </a>
 
               <a 
                 href="#contact"
-                className="px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium transition-all duration-300 flex items-center space-x-2"
+                className="px-6 py-3.5 rounded-xl bg-white dark:bg-dark-card text-slate-700 dark:text-dark-text border border-slate-200 dark:border-dark-border shadow-premium-sm hover:shadow-premium-md dark:hover:shadow-premium-dark-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:bg-slate-50 dark:hover:bg-[#1f293d]/30 flex items-center space-x-2"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 text-[#6366F1]" />
                 <span>Contact Me</span>
               </a>
             </div>
@@ -120,8 +121,14 @@ export const Hero: React.FC = () => {
               </a>
               <a 
                 href={`mailto:${profile.email}`}
+                onClick={() => {
+                  if (navigator.clipboard) {
+                    navigator.clipboard.writeText(profile.email).catch(() => {});
+                  }
+                }}
                 className="p-3 rounded-xl bg-slate-100 dark:bg-dark-card text-slate-600 dark:text-dark-muted hover:text-indigo-600 dark:hover:text-brand-secondary border border-slate-200/50 dark:border-dark-border/80 transition-all duration-300"
                 aria-label="Send Email"
+                title="Send Email (copies to clipboard)"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -159,7 +166,7 @@ export const Hero: React.FC = () => {
 
           {/* Interactive Shell / Terminal Window */}
           <div className="lg:col-span-5 w-full">
-            <div className="w-full rounded-2xl border border-slate-200 dark:border-dark-border bg-white dark:bg-[#0f1422] shadow-xl overflow-hidden animate-slide-in">
+            <div className="w-full rounded-3xl border border-slate-200/80 dark:border-dark-border/80 bg-white dark:bg-dark-card shadow-stripe dark:shadow-stripe-dark overflow-hidden animate-slide-in">
               {/* Window Controls Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-slate-100 dark:bg-[#0b0e16] border-b border-slate-200/80 dark:border-dark-border/80">
                 <div className="flex items-center space-x-2">
@@ -181,7 +188,7 @@ export const Hero: React.FC = () => {
                 </div>
                 
                 <div className="grid grid-cols-3 gap-2 py-1 border-y border-slate-200/60 dark:border-dark-border/40">
-                  <div className="col-span-1 text-indigo-500 dark:text-brand-secondary font-bold flex flex-col justify-center items-center">
+                  <div className="col-span-1 text-[#6366F1] dark:text-[#a78bfa] font-bold flex flex-col justify-center items-center">
                     <Code2 className="w-12 h-12" />
                     <span className="text-xs mt-1 text-center">Indian Institute of Information Technology, Bhopal</span>
                   </div>
@@ -200,7 +207,7 @@ export const Hero: React.FC = () => {
                   <span className="text-green-500">shivang@iiit-bhopal:~$</span> <span className="text-slate-800 dark:text-white font-semibold">cat interests.json</span>
                 </div>
 
-                <div className="text-xs text-indigo-600 dark:text-indigo-400 pl-4 bg-slate-50 dark:bg-dark-bg/40 p-2.5 rounded-lg border border-slate-200 dark:border-dark-border/30">
+                <div className="text-xs text-indigo-650 dark:text-indigo-300 pl-4 bg-indigo-50/30 dark:bg-[#131a2a]/55 p-2.5 rounded-lg border border-indigo-100/50 dark:border-indigo-900/35">
                   <p>&#123;</p>
                   <p>&nbsp;&nbsp;&quot;focus&quot;: &quot;Distributed Systems &amp; APIs&quot;,</p>
                   <p>&nbsp;&nbsp;&quot;currentStudy&quot;: &quot;System Design &amp; DBMS&quot;,</p>
@@ -210,7 +217,7 @@ export const Hero: React.FC = () => {
                 
                 <div className="flex items-center space-x-1.5">
                   <span className="text-green-500">shivang@iiit-bhopal:~$</span>
-                  <span className="w-2.5 h-4 bg-indigo-500 dark:bg-brand-secondary animate-pulse inline-block"></span>
+                  <span className="w-2.5 h-4 bg-[#6366F1] dark:bg-[#a78bfa] animate-pulse inline-block"></span>
                 </div>
               </div>
             </div>
@@ -225,7 +232,7 @@ export const Hero: React.FC = () => {
             return (
               <div 
                 key={index} 
-                className="glass-card rounded-2xl p-5 hover:border-brand-primary/30 flex items-center space-x-4 shadow-sm hover:shadow-md transition-all duration-300"
+                className="glass-card glass-card-hover rounded-3xl p-5 flex items-center space-x-4"
               >
                 <div className={`p-3 rounded-xl bg-slate-100 dark:bg-[#182030] ${s.color}`}>
                   <IconComponent className="w-6 h-6" />

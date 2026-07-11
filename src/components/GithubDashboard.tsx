@@ -28,7 +28,9 @@ export const GithubDashboard: React.FC<GithubDashboardProps> = ({ darkMode }) =>
   ];
 
   return (
-    <section className="py-16 border-t border-slate-200/50 dark:border-dark-border/40 relative">
+    <section className="py-20 border-t border-slate-200/40 dark:border-dark-border/30 relative overflow-hidden">
+      <div className="glow-orb-primary -top-12 -left-12 animate-pulse-slow"></div>
+      <div className="glow-orb-cyan bottom-12 -right-12 animate-pulse-slow"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-left">
         
         {/* Section Header */}
@@ -54,7 +56,7 @@ export const GithubDashboard: React.FC<GithubDashboardProps> = ({ darkMode }) =>
                 return (
                   <div 
                     key={idx} 
-                    className="glass-card rounded-2xl p-4 border-slate-200/50 dark:border-dark-border/50 shadow-sm flex flex-col justify-between h-28"
+                    className="glass-card glass-card-hover rounded-3xl p-4 flex flex-col justify-between h-28"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-mono font-medium text-slate-400 dark:text-dark-muted uppercase tracking-wider">
@@ -71,7 +73,7 @@ export const GithubDashboard: React.FC<GithubDashboardProps> = ({ darkMode }) =>
             </div>
 
             {/* Language Breakdown Card */}
-            <div className="glass-card rounded-2xl p-5 border-slate-200/50 dark:border-dark-border/50 shadow-sm space-y-4">
+            <div className="glass-card rounded-3xl p-5 space-y-4">
               <h4 className="text-xs font-mono font-bold text-slate-400 dark:text-dark-muted uppercase tracking-widest">
                 Language Breakdown
               </h4>
@@ -100,7 +102,7 @@ export const GithubDashboard: React.FC<GithubDashboardProps> = ({ darkMode }) =>
           <div className="lg:col-span-8 space-y-6">
             
             {/* Live Chart Container */}
-            <div className="glass-card rounded-2xl p-6 border-slate-200/50 dark:border-dark-border/50 shadow-sm space-y-6">
+            <div className="glass-card rounded-3xl p-6 space-y-6">
               
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/50 dark:border-dark-border/40 pb-4">
                 <div>

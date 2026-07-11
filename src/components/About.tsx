@@ -3,14 +3,15 @@ import { User, FileText, Target, Smile } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 border-t border-slate-200/50 dark:border-dark-border/40 relative">
-      <div className="glow-orb-secondary top-12 left-1/4"></div>
+    <section id="about" className="py-20 border-t border-slate-200/40 dark:border-dark-border/30 relative overflow-hidden">
+      <div className="glow-orb-secondary top-12 left-1/4 animate-pulse-slow"></div>
+      <div className="glow-orb-cyan bottom-12 right-12 animate-pulse-slow"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-mono text-brand-primary dark:text-brand-secondary uppercase tracking-widest bg-indigo-500/10 dark:bg-brand-secondary/10 px-3 py-1.5 rounded-full inline-block">
+          <h2 className="text-xs font-mono text-brand-primary dark:text-brand-secondary uppercase tracking-widest bg-brand-primary/10 dark:bg-brand-secondary/10 px-3 py-1.5 rounded-full inline-block">
             01 . Profile
           </h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-dark-text mt-3 tracking-tight">
@@ -24,10 +25,10 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
           
           {/* Card 1: Professional Introduction */}
-          <div className="glass-card rounded-2xl p-6 border-slate-200/60 dark:border-dark-border/60 hover:border-indigo-500/20 dark:hover:border-brand-secondary/20 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+          <div className="glass-card glass-card-hover rounded-3xl p-6">
             <div className="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-200/50 dark:border-dark-border/40">
-              <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#182030] shadow-sm">
-                <User className="w-5 h-5 text-indigo-500" />
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shadow-sm">
+                <User className="w-5 h-5" />
               </div>
               <h4 className="font-bold text-slate-800 dark:text-dark-text text-lg tracking-tight">
                 Professional Introduction
@@ -39,10 +40,10 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 2: Short Summary */}
-          <div className="glass-card rounded-2xl p-6 border-slate-200/60 dark:border-dark-border/60 hover:border-indigo-500/20 dark:hover:border-brand-secondary/20 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+          <div className="glass-card glass-card-hover rounded-3xl p-6">
             <div className="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-200/50 dark:border-dark-border/40">
-              <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#182030] shadow-sm">
-                <FileText className="w-5 h-5 text-indigo-500" />
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shadow-sm">
+                <FileText className="w-5 h-5" />
               </div>
               <h4 className="font-bold text-slate-800 dark:text-dark-text text-lg tracking-tight">
                 Short Summary
@@ -54,10 +55,10 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 3: Career Interests */}
-          <div className="glass-card rounded-2xl p-6 border-slate-200/60 dark:border-dark-border/60 hover:border-indigo-500/20 dark:hover:border-brand-secondary/20 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+          <div className="glass-card glass-card-hover rounded-3xl p-6">
             <div className="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-200/50 dark:border-dark-border/40">
-              <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#182030] shadow-sm">
-                <Target className="w-5 h-5 text-indigo-500" />
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shadow-sm">
+                <Target className="w-5 h-5" />
               </div>
               <h4 className="font-bold text-slate-800 dark:text-dark-text text-lg tracking-tight">
                 Career Interests
@@ -69,10 +70,10 @@ export const About: React.FC = () => {
           </div>
 
           {/* Card 4: Brief Personal Description */}
-          <div className="glass-card rounded-2xl p-6 border-slate-200/60 dark:border-dark-border/60 hover:border-indigo-500/20 dark:hover:border-brand-secondary/20 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+          <div className="glass-card glass-card-hover rounded-3xl p-6">
             <div className="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-200/50 dark:border-dark-border/40">
-              <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#182030] shadow-sm">
-                <Smile className="w-5 h-5 text-indigo-500" />
+              <div className="p-2 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shadow-sm">
+                <Smile className="w-5 h-5" />
               </div>
               <h4 className="font-bold text-slate-800 dark:text-dark-text text-lg tracking-tight">
                 Brief Personal Description

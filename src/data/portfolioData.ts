@@ -1,13 +1,9 @@
 export interface Project {
   title: string;
   description: string;
-  longDescription?: string;
   techStack: string[];
-  keyFeatures: string[];
-  architectureHighlights?: string[];
   githubUrl: string;
   liveUrl?: string;
-  isFeatured?: boolean;
 }
 
 export interface SkillCategory {
@@ -38,7 +34,7 @@ export const portfolioData = {
     title: "Backend Engineer | Cloud & DevOps",
     subtitle: "Building scalable applications, distributed systems, and cloud-native infrastructure.",
     bio: "I am a B.Tech Information Technology student at Indian Institute of Information Technology, Bhopal, specializing in backend engineering and DevOps. Passionate about building robust backend architectures with Java and Spring Boot, optimizing databases (PostgreSQL, Cassandra, Redis), and orchestrating containerized environments (Docker, Kubernetes) via automated CI/CD pipelines.",
-    email: "kshivang579@gmail.com",
+    email: "kshivang679@gmail.com",
     phone: "+91 7409735442",
     location: "Bhopal, India",
     socials: {
@@ -128,63 +124,25 @@ export const portfolioData = {
       ]
     }
   ] as SkillCategory[],
-  featuredProjects: [
+  projects: [
     {
       title: "Messaging System",
       description: "Decoupled messaging platform managing end-to-end messaging workflows, atomic unread-count, and core mailbox operations.",
-      longDescription: "Engineered a production-ready, decoupled messaging application that utilizes a robust Spring Boot REST API for backend services and a React frontend. Designed high-performance, query-driven database architectures with Apache Cassandra to support instant low-latency message retrieval.",
       techStack: ["Java", "Spring Boot", "Apache Cassandra", "Spring Security", "OAuth2", "React", "JWT"],
-      keyFeatures: [
-        "Engineered a decoupled messaging platform using a Spring Boot REST API and React, managing end-to-end messaging workflows and core mailbox operations.",
-        "Designed 4 query-driven Cassandra tables using partition keys, clustering keys, and counters, enabling scalable storage and low-latency message retrieval.",
-        "Implemented JWT and GitHub OAuth2 authentication with Spring Security while maintaining atomic unread-count synchronization across 3 mailbox categories."
-      ],
-      architectureHighlights: [
-        "Distributed Cassandra DB for highly scalable email storage without single points of failure.",
-        "Stateless JWT authorization model keeping backend nodes horizontally scale-ready.",
-        "Event-driven updates ensuring synchronization of unread statistics across mail categories."
-      ],
-      githubUrl: "https://github.com/Shivang14d04/Messaging-System",
-      isFeatured: true
+      githubUrl: "https://github.com/Shivang14d04/Messaging-System"
     },
     {
       title: "ShopGrid E-Commerce",
       description: "Layered enterprise e-commerce backend platform featuring cached product catalog queries, JWT transaction security, and Spring AOP performance monitoring.",
-      longDescription: "Architected a solid, layered Spring Boot and Java 21 eCommerce backend utilizing relational database design and high-efficiency caching strategies to manage high concurrency on product lookups.",
       techStack: ["Java", "Spring Boot", "PostgreSQL", "Redis", "Spring Security", "Spring Data JPA", "JWT", "Spring AOP"],
-      keyFeatures: [
-        "Architected a layered Spring Boot and Java 21 eCommerce backend using PostgreSQL and Spring Data JPA, ensuring clean separation of concerns for 50+ users.",
-        "Reduced read latency by 45% by implementing a Redis and Spring Cache strategy with automated data eviction rules for product catalog lookups.",
-        "Secured transactional workflows via JWT to cut unauthorized access by 55%, applying Spring AOP aspects to capture real-time performance metrics across core services."
-      ],
-      architectureHighlights: [
-        "Layered Clean Architecture separating Controller, Service, and Repository layers.",
-        "Write-through caching pattern with Redis for catalog reads and PostgreSQL for relational consistency.",
-        "AOP Aspect intercepts to capture response times and service latency for prometheus analytics."
-      ],
-      githubUrl: "https://github.com/Shivang14d04/ShopGrid",
-      isFeatured: true
+      githubUrl: "https://github.com/Shivang14d04/ShopGrid"
     },
     {
       title: "CosmicView Space Platform",
       description: "Production-ready DevOps showcase deploying a space exploration platform on AWS EKS via automated Jenkins CI/CD and Terraform infrastructure.",
-      longDescription: "A complete infrastructure-as-code and deployment pipeline project, establishing automated cloud systems for high availability and zero-downtime deployment.",
       techStack: ["AWS", "EKS", "Terraform", "Kubernetes", "Jenkins", "Docker", "SonarQube", "Trivy", "S3"],
-      keyFeatures: [
-        "Engineered a production-ready space exploration platform leveraging server-side rendering (SSR) and API caching to optimize performance for 90+ users.",
-        "Implemented a 7-stage CI/CD pipeline using Jenkins, SonarQube, Docker, and Trivy, automating code quality checks, 2 vulnerability scans, image builds, and deployments.",
-        "Provisioned a production-grade AWS EKS cluster using Terraform with remote state stored in S3, enabling state locking, infrastructure as code, and repeatable deployments."
-      ],
-      architectureHighlights: [
-        "Infrastructure-as-Code (IaC) with modular Terraform configuration.",
-        "Kubernetes Helm charts defining deployment, cluster autoscaling, and ingress mapping.",
-        "DevSecOps static analysis integrated into the automated delivery pipeline."
-      ],
-      githubUrl: "https://github.com/Shivang14d04/Cosmic-View",
-      isFeatured: true
-    }
-  ] as Project[],
-  githubProjects: [
+      githubUrl: "https://github.com/Shivang14d04/Cosmic-View"
+    },
     {
       title: "Microservice Quiz App",
       description: "Robust, decentralized Quiz Application built using Spring Boot Microservices architecture with Eureka Service Registry, API Gateway, and OpenFeign client communication.",

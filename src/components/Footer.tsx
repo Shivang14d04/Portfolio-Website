@@ -58,8 +58,14 @@ export const Footer: React.FC = () => {
             </a>
             <a 
               href={`mailto:${profile.email}`} 
+              onClick={() => {
+                if (navigator.clipboard) {
+                  navigator.clipboard.writeText(profile.email).catch(() => {});
+                }
+              }}
               className="p-2.5 rounded-lg bg-white dark:bg-dark-card border border-slate-200 dark:border-dark-border text-slate-500 dark:text-dark-muted hover:text-indigo-600 dark:hover:text-brand-secondary transition-colors duration-200 shadow-sm"
               aria-label="Send Email"
+              title="Send Email (copies to clipboard)"
             >
               <Mail className="w-4 h-4" />
             </a>

@@ -20,34 +20,42 @@ export const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Construct email subject and body for recruiter convenience
-    const subject = encodeURIComponent(formData.subject || `Portfolio Contact - ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    
-    // Open standard mailto link
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    if (form && !form.checkValidity()) {
+      form.reportValidity();
+      e.preventDefault();
+      return;
+    }
+
+    // Copy to clipboard fallback
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(profile.email).catch(() => {});
+    }
     
     setIsSent(true);
     setTimeout(() => {
       setIsSent(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    }, 4000);
   };
 
+  const subject = encodeURIComponent(formData.subject || `Portfolio Contact - ${formData.name}`);
+  const body = encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+  );
+  const mailtoUrl = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+
   return (
-    <section id="contact" className="py-20 border-t border-slate-200/50 dark:border-dark-border/40 relative">
-      <div className="glow-orb-primary -bottom-10 -right-10"></div>
+    <section id="contact" className="py-24 border-t border-slate-200/40 dark:border-dark-border/30 relative overflow-hidden">
+      <div className="glow-orb-primary -bottom-10 -right-10 animate-pulse-slow"></div>
+      <div className="glow-orb-secondary top-10 left-10 animate-pulse-slow"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-mono text-brand-primary dark:text-brand-secondary uppercase tracking-widest bg-indigo-500/10 dark:bg-brand-secondary/10 px-3 py-1.5 rounded-full inline-block">
+          <h2 className="text-xs font-mono text-brand-primary dark:text-brand-secondary uppercase tracking-widest bg-brand-primary/10 dark:bg-brand-secondary/10 px-3 py-1.5 rounded-full inline-block">
             06 . Contact
           </h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-dark-text mt-3 tracking-tight">
@@ -64,16 +72,16 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             
             <div className="space-y-6 flex-1">
-              <h4 className="text-xl font-bold text-slate-855 dark:text-dark-text flex items-center space-x-2.5">
-                <MessageSquare className="w-5 h-5 text-indigo-500" />
+              <h4 className="text-xl font-bold text-slate-800 dark:text-dark-text flex items-center space-x-2.5">
+                <MessageSquare className="w-5 h-5 text-[#6366F1]" />
                 <span>Contact Channels</span>
               </h4>
               
               <div className="space-y-4">
                 
                 {/* Email card */}
-                <div className="glass-card rounded-2xl p-5 border-slate-200/50 dark:border-dark-border/50 flex items-center space-x-4">
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-dark-border text-indigo-550 dark:text-brand-secondary">
+                <div className="glass-card glass-card-hover rounded-3xl p-5 flex items-center space-x-4">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -82,7 +90,7 @@ export const Contact: React.FC = () => {
                     </span>
                     <a 
                       href={`mailto:${profile.email}`} 
-                      className="font-bold text-slate-750 dark:text-dark-text hover:text-indigo-600 dark:hover:text-brand-secondary transition-colors duration-200 break-all"
+                      className="font-bold text-slate-800 dark:text-dark-text hover:text-[#6366F1] dark:hover:text-[#a78bfa] transition-colors duration-200 break-all"
                     >
                       {profile.email}
                     </a>
@@ -90,8 +98,8 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {/* Phone card */}
-                <div className="glass-card rounded-2xl p-5 border-slate-200/50 dark:border-dark-border/50 flex items-center space-x-4">
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-dark-border text-indigo-550 dark:text-brand-secondary">
+                <div className="glass-card glass-card-hover rounded-3xl p-5 flex items-center space-x-4">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -100,7 +108,7 @@ export const Contact: React.FC = () => {
                     </span>
                     <a 
                       href={`tel:${profile.phone}`} 
-                      className="font-bold text-slate-750 dark:text-dark-text hover:text-indigo-600 dark:hover:text-brand-secondary transition-colors duration-200"
+                      className="font-bold text-slate-800 dark:text-dark-text hover:text-[#6366F1] dark:hover:text-[#a78bfa] transition-colors duration-200"
                     >
                       {profile.phone}
                     </a>
@@ -108,15 +116,15 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {/* Location card */}
-                <div className="glass-card rounded-2xl p-5 border-slate-200/50 dark:border-dark-border/50 flex items-center space-x-4">
-                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-dark-border text-indigo-550 dark:text-brand-secondary">
+                <div className="glass-card glass-card-hover rounded-3xl p-5 flex items-center space-x-4">
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1E293B]/40 text-[#94A3B8] border border-slate-200/50 dark:border-dark-border/40 shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono text-slate-400 dark:text-dark-muted uppercase tracking-wider block">
                       Primary Location
                     </span>
-                    <span className="font-bold text-slate-750 dark:text-dark-text">
+                    <span className="font-bold text-slate-800 dark:text-dark-text">
                       {profile.location}
                     </span>
                   </div>
@@ -126,7 +134,7 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Note detail */}
-            <div className="p-4 rounded-2xl bg-indigo-500/5 dark:bg-brand-secondary/5 border border-indigo-500/10 dark:border-brand-secondary/10 text-xs text-slate-500 dark:text-dark-muted leading-relaxed">
+            <div className="p-4 rounded-3xl bg-indigo-50/20 dark:bg-indigo-950/10 border border-indigo-150/40 dark:border-indigo-900/30 text-xs text-slate-500 dark:text-dark-muted leading-relaxed">
               Submitting the contact form constructs a formatted draft in your default client, making it easy to send a message directly.
             </div>
 
@@ -134,9 +142,9 @@ export const Contact: React.FC = () => {
 
           {/* Right Block: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card rounded-3xl p-6 sm:p-8 border-slate-200/60 dark:border-dark-border/60 shadow-md">
+            <div className="glass-card rounded-3xl p-6 sm:p-8">
               
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form id="contact-form" onSubmit={(e) => e.preventDefault()} className="space-y-5">
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
@@ -199,18 +207,19 @@ export const Contact: React.FC = () => {
                   ></textarea>
                 </div>
 
-                <button 
-                  type="submit" 
-                  className={`w-full py-4 px-6 rounded-xl text-white font-medium hover:shadow-glow-primary transition-all duration-300 transform active:scale-98 flex items-center justify-center space-x-2 ${
+                <a 
+                  href={isSent ? undefined : mailtoUrl}
+                  onClick={handleLinkClick}
+                  className={`w-full py-4 px-6 rounded-xl text-white font-semibold transition-all duration-300 transform active:scale-98 hover:-translate-y-0.5 shadow-lg flex items-center justify-center space-x-2 ${
                     isSent 
-                      ? 'bg-emerald-600 hover:bg-emerald-700 shadow-glow-secondary' 
-                      : 'bg-brand-primary hover:bg-indigo-700'
-                  }`}
+                      ? 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/20 hover:shadow-emerald-500/30' 
+                      : 'bg-gradient-to-r from-[#6366F1] to-[#7C3AED] hover:from-[#4F46E5] hover:to-[#6D28D9] shadow-indigo-500/20 hover:shadow-indigo-500/30'
+                  } cursor-pointer`}
                 >
                   {isSent ? (
                     <>
                       <CheckCircle className="w-5 h-5" />
-                      <span>Email Client Loaded!</span>
+                      <span>Draft Opened &amp; Email Copied!</span>
                     </>
                   ) : (
                     <>
@@ -218,7 +227,7 @@ export const Contact: React.FC = () => {
                       <span>Send Message</span>
                     </>
                   )}
-                </button>
+                </a>
 
               </form>
 
