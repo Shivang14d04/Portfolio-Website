@@ -4,6 +4,7 @@ export interface Project {
   techStack: string[];
   githubUrl: string;
   liveUrl?: string;
+  featured?: boolean;
 }
 
 export interface SkillCategory {
@@ -126,6 +127,19 @@ export const portfolioData = {
   ] as SkillCategory[],
   projects: [
     {
+      title: "Distributed Rate Limiter",
+      description: "A distributed, per-user rate-limiting system using Redis as a centralized state store with Lua scripting for atomic token bucket operations. Deployed across multiple Spring Boot instances behind Nginx load balancer with Prometheus & Grafana observability.",
+      techStack: ["Java 21", "Spring Boot", "Redis", "Lua", "Nginx", "Docker", "Docker Compose", "Prometheus", "Grafana", "Micrometer", "Maven"],
+      githubUrl: "https://github.com/Shivang14d04/Distributed-rate-limiter",
+      featured: true
+    },
+    {
+      title: "Banking & Money Transfer System",
+      description: "A backend banking application providing REST APIs for account management, deposits, withdrawals, and atomic money transfers with pessimistic locking, consistent lock ordering, and transactional integrity using Spring Data JPA and PostgreSQL.",
+      techStack: ["Java 21", "Spring Boot", "Spring Data JPA", "Hibernate", "PostgreSQL", "Docker", "Docker Compose", "JUnit 5", "Mockito", "Maven"],
+      githubUrl: "https://github.com/Shivang14d04/Banking-application"
+    },
+    {
       title: "Messaging System",
       description: "Decoupled messaging platform managing end-to-end messaging workflows, atomic unread-count, and core mailbox operations.",
       techStack: ["Java", "Spring Boot", "Apache Cassandra", "Spring Security", "OAuth2", "React", "JWT"],
@@ -173,12 +187,6 @@ export const portfolioData = {
       description: "Collaboration platform that helps hackathon participants discover teammates based on matching technical skills and interests.",
       techStack: ["JavaScript", "NodeJS", "Express", "MongoDB", "CSS"],
       githubUrl: "https://github.com/Shivang14d04/HackDevs"
-    },
-    {
-      title: "BlogCircle",
-      description: "Full-stack blog web application with authentication, posts, image uploading, and comment threads using Node.js, Express, and MongoDB.",
-      techStack: ["EJS", "NodeJS", "Express", "MongoDB", "Bootstrap"],
-      githubUrl: "https://github.com/Shivang14d04/BlogCircle"
     }
   ] as Project[],
   experience: [

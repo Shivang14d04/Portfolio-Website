@@ -31,7 +31,7 @@ export const About: React.FC = () => {
                 <User className="w-5 h-5" />
               </div>
               <h4 className="font-bold text-slate-800 dark:text-dark-text text-lg tracking-tight">
-                Professional Introduction
+                Introduction
               </h4>
             </div>
             <p className="text-slate-600 dark:text-dark-muted leading-relaxed text-sm">
